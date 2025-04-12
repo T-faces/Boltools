@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boltools</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-cloud-download-alt"></i> Boltools</h1>
+            <p>Unduh video favorit Anda dari berbagai platform dengan mudah dan cepat.</p>
+        </header>
+        <main>
+            <div class="input-group">
+                <input type="text" id="video-url" placeholder="Tempel tautan video di sini...">
+                <button id="download-button"><i class="fas fa-download"></i> Unduh</button>
+            </div>
+            <div id="status-area" class="hidden">
+                <p id="status-message"></p>
+                <div id="progress-bar-container" class="hidden">
+                    <div id="progress-bar"></div>
+                </div>
+                <div id="download-link-area" class="hidden">
+                    <a id="download-link" href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> Unduh Video</a>
+                </div>
+                <div id="error-message" class="hidden">
+                    <p class="error"><i class="fas fa-exclamation-triangle"></i> Terjadi kesalahan. Silakan coba lagi.</p>
+                </div>
+            </div>
+            <section class="features">
+                <h2>Fitur Utama</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <i class="fas fa-link fa-2x"></i>
+                        <h3>Dukungan Berbagai Platform</h3>
+                        <p>Mendukung pengunduhan dari berbagai situs web video populer.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-rocket fa-2x"></i>
+                        <h3>Pengunduhan Cepat</h3>
+                        <p>Proses pengunduhan yang cepat dan efisien.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt fa-2x"></i>
+                        <h3>Aman dan Terpercaya</h3>
+                        <p>Tidak ada perangkat lunak berbahaya atau iklan yang mengganggu.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Pengunduh Video Online</p>
+        </footer>
+    </div>
+
+    <script>
+        // Contoh implementasi JavaScript sederhana (fungsionalitas sebenarnya memerlukan backend)
+        document.getElementById('download-button').addEventListener('click', function() {
+            const videoUrlInput = document.getElementById('video-url');
+            const statusArea = document.getElementById('status-area');
+            const statusMessage = document.getElementById('status-message');
+            const progressBarContainer = document.getElementById('progress-bar-container');
+            const progressBar = document.getElementById('progress-bar');
+            const downloadLinkArea = document.getElementById('download-link-area');
+            const downloadLink = document.getElementById('download-link');
+            const errorMessage = document.getElementById('error-message');
+            const videoUrl = videoUrlInput.value.trim();
+
+            if (videoUrl === '') {
+                statusMessage.textContent = 'Harap masukkan tautan video.';
+                statusArea.classList.remove('hidden');
+                errorMessage.classList.add('hidden');
+                progressBarContainer.classList.add('hidden');
+                downloadLinkArea.classList.add('hidden');
+                return;
+            }
+
+            statusMessage.textContent = 'Memproses tautan...';
+            statusArea.classList.remove('hidden');
+            errorMessage.classList.add('hidden');
+            progressBarContainer.classList.remove('hidden');
+            progressBar.style.width = '30%';
+
+            // Simulasi proses pengunduhan (ganti dengan logika backend sebenarnya)
+            setTimeout(() => {
+                progressBar.style.width = '70%';
+                setTimeout(() => {
+                    // Asumsi pengunduhan berhasil
+                    progressBar.style.width = '100%';
+                    statusMessage.textContent = 'Pengunduhan selesai!';
+                    downloadLink.href = '#'; // Ganti dengan URL unduhan sebenarnya dari backend
+                    downloadLinkArea.classList.remove('hidden');
+                    progressBarContainer.classList.add('hidden');
+                }, 1500);
+            }, 2000);
+
+            // Contoh penanganan kesalahan (hapus jika backend diimplementasikan)
+            // setTimeout(() => {
+            //     statusArea.classList.add('hidden');
+            //     errorMessage.classList.remove('hidden');
+            //     progressBarContainer.classList.add('hidden');
+            //     downloadLinkArea.classList.add('hidden');
+            // }, 5000);
+        });
+    </script>
+</body>
+</html>
